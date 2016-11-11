@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from './NavBar';
 
-class Specials extends Component {
+class Orders extends Component {
 	render(){
 		return(
 			<div>
@@ -10,12 +10,13 @@ class Specials extends Component {
 						<NavBar/>
 					</div>
 					<div className="col-sm-9 col-md-10">
-						<h1>Specials Go Here</h1>
+						<h1>Orders Go Here</h1>
 					</div>
 				</div>
 			</div>
+
 		);
 	}
 }
 
-export default Specials;
+export default Orders;

@@ -1,26 +1,18 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import NavBar from './components/NavBar';
+import React from 'react';
+import {render} from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
+import App from './App';
+import Orders from './components/Orders';
+import Items from './components/Items';
+import Customers from './components/Customers';
 import Specials from './components/Specials';
-import CreateSandwich from './components/CreateSandwich';
-import Footer from './components/Footer';
-import SnacksDrinks from './components/SnacksDrinks';
 
-class App extends Component {
-
-	render(){
-		return(
-			<div>
-				<NavBar></NavBar>
-				<Specials></Specials>
-				<CreateSandwich></CreateSandwich>
-				<SnacksDrinks></SnacksDrinks>
-				<Footer></Footer>
-			</div>
-		);
-	}
-
-		
-}
-
-ReactDOM.render(<App />, document.querySelector('#main'));
+render((
+    <Router history={browserHistory}>
+        <Route path="/" component={App}/>
+        <Route path="/orders" component={Orders}/>
+        <Route path="/items" component={Items}/>
+        <Route path="/customers" component={Customers}/>
+        <Route path="/specials" component={Specials}/>
+    </Router>
+   ), document.querySelector('#main'));
