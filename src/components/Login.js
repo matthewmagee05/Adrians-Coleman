@@ -5,7 +5,7 @@ class Login extends Component {
 
 	constructor(props){
 		super(props);
-		this.state = { email: '', password: ''};
+		this.state = { email: '', password: '', error: ''};
 	}
 	
 
@@ -15,7 +15,12 @@ class Login extends Component {
 
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.catch(
+				this.onLoginFail.bind(this)
 				);
+	}
+
+	onLoginFail(){
+		this.setState({ error: 'Authentication Failed. Please Try Again'});
 	}
 
 	handleEmailChange(e) {
@@ -30,6 +35,7 @@ class Login extends Component {
 			<div className="container">
 		      <form className="form-signin">
 		        <img src="../../img/adrians_logo_mockup.png" alt="Adrians@Coleman" className="form-signin-heading loginImage"></img>
+		        
 		        <label className="sr-only">Email address</label>
 		        <input 
 		        	type="email" 
@@ -48,7 +54,9 @@ class Login extends Component {
 		        	required
 		        	value={this.state.password}
 		        	onChange={this.handlePasswordChange.bind(this)}/>
+		        <label className="errorMessage">{this.state.error}</label>
 		        <button className="btn btn-lg btn-primary btn-block" onClick={this.onButtonPress.bind(this)}>Sign in</button>
+
 		      </form>
 			</div>
 		);

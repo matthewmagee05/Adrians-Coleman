@@ -35,9 +35,9 @@ class NavBar extends Component {
 			                      </Link>
 			                    </li>
 			                     <li>
-			                      <a onClick={() => firebase.auth().signOut()}>
-			                      <i className="fa fa-users fa-lg"></i> Log Out
-			                      </a>
+			                     	<Link to="/" onClick={() => firebase.auth().signOut()}>
+				                      <i className="fa fa-users fa-lg"></i> Log Out
+			                      	</Link>
 			                    </li>
 			                </ul>
 			         </div>
